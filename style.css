@@ -1,0 +1,1357 @@
+:root {
+    --navy: #1b2f52;
+    --ink: #0d2b4d;
+    --blue: #3a5a94;
+    --cream: #fdf6ee
+}
+
+/* Section selain cover disembunyikan dulu sebelum undangan dibuka */
+body.locked #home,
+body.locked #mempelai,
+body.locked #acara,
+body.locked #gift,
+body.locked #rsvp,
+body.locked #closing {
+    display: none;
+}
+
+/* Cover tetap kelihatan penuh */
+#cover {
+    height: 100vh;
+    height: 100dvh;
+    /* biar pas di mobile ada address bar */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    background: #0e1a30;
+    font-family: 'Cormorant Garamond', serif;
+    color: #fff
+}
+
+body.locked {
+    overflow: hidden
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    background: none
+}
+
+img {
+    display: block;
+    max-width: 100%
+}
+
+#app {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--navy) url(images/bg.jpg) top/100% auto repeat-y;
+    overflow: hidden;
+    padding-bottom: 90px
+}
+
+/* ===== PANGGUNG 1080x1920 — semua posisi pakai satuan desain (px Canva) ===== */
+.stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    container-type: inline-size;
+    overflow: hidden;
+    --u: calc(100cqw / 1080)
+}
+
+:where(.stage>*) {
+    position: absolute;
+    z-index: 1
+}
+
+:where(.stage>img) {
+    height: auto
+}
+
+:where(.stage>p, .stage>h1, .stage>h2) {
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 1.15;
+    color: #fff;
+    font-weight: inherit
+}
+
+.ink {
+    color: var(--ink)
+}
+
+.script {
+    font-family: 'Homemade Apple', cursive;
+    font-weight: 400
+}
+
+.ar {
+    font-family: 'Amiri', serif;
+    direction: rtl
+}
+
+.gold {
+    color: #d8a85a
+}
+
+.pearl {
+    pointer-events: none
+}
+
+.flip {
+    transform: scaleX(-1)
+}
+
+/* ===== ANIMASI TERBIT (ala Canva) — muncul saat di-scroll ===== */
+.rv {
+    opacity: 0;
+    transition: opacity .9s cubic-bezier(.2, .8, .2, 1), scale .9s cubic-bezier(.2, .8, .2, 1), translate .9s cubic-bezier(.2, .8, .2, 1);
+    transition-delay: 0s
+}
+
+.rv[data-a=pop] {
+    scale: .5
+}
+
+.rv[data-a=up] {
+    translate: 0 36px
+}
+
+.rv[data-a=l] {
+    translate: -70px 0
+}
+
+.rv[data-a=r] {
+    translate: 70px 0
+}
+
+.rv.in {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0
+}
+
+/* ===== BUNGA GOYANG TERUS ===== */
+.sw {
+    transform-origin: var(--o, 50% 100%);
+    animation: sway 4.5s ease-in-out infinite alternate
+}
+
+@keyframes sway {
+    from {
+        rotate: -3deg
+    }
+
+    to {
+        rotate: 3deg
+    }
+}
+
+/* ===== STAMP / SEGEL / HATI BESAR-KECIL ===== */
+.pulse {
+    animation: pulse 1.8s ease-in-out infinite
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(.85)
+    }
+
+    50% {
+        transform: scale(1.15)
+    }
+}
+
+/* tombol & field (gaya saja, ukuran/posisi dari style inline) */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    transition: filter .2s, transform .2s
+}
+
+.btn:hover {
+    filter: brightness(1.2)
+}
+
+.btn:active {
+    transform: scale(.95)
+}
+
+.fld {
+    background: #fffdf8;
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    border: 2px solid #7b2b3a;
+    border-radius: calc(14 * var(--u));
+    padding: 0 6%;
+    transition: box-shadow .25s, scale .25s
+}
+
+.fld:focus {
+    outline: 0;
+    box-shadow: 0 0 0 calc(7 * var(--u)) rgba(58, 90, 148, .35);
+    scale: 1.03
+}
+
+.fld.err {
+    animation: shake .4s
+}
+
+@keyframes shake {
+    25% {
+        translate: -8px 0
+    }
+
+    75% {
+        translate: 8px 0
+    }
+}
+
+.photo {
+    overflow: hidden;
+    border-radius: 50%
+}
+
+.photo img,
+.g img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.g {
+    overflow: hidden
+}
+
+.g img {
+    transition: transform .6s
+}
+
+.g:hover img {
+    transform: scale(1.12)
+}
+
+.ig svg {
+    width: 100%;
+    stroke: var(--ink);
+    fill: none;
+    stroke-width: 1.5;
+    display: block
+}
+
+/* countdown / tanggal: tiap kolom diposisikan pakai titik tengah (--cx) */
+.cd,
+.cdl,
+.wk {
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 1.15;
+    color: #fff
+}
+
+.cd div,
+.cdl span,
+.wk span {
+    position: absolute;
+    translate: -50% 0;
+    white-space: nowrap;
+    text-align: center
+}
+
+.cd b {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600
+}
+
+.cd div:not(:last-child) b::after {
+    content: ":"
+}
+
+.cdl {
+    font-family: 'Cormorant Garamond'
+}
+
+.wk span {
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    flex-direction: column;
+    gap: calc(4 * var(--u))
+}
+
+.wk small {
+    font: calc(22 * var(--u)) 'Cormorant Garamond', serif
+}
+
+/* wishes */
+#wishes {
+    display: flex;
+    flex-direction: column;
+    gap: calc(32 * var(--u));
+    overflow-y: auto;
+    scrollbar-width: none;
+    font-family: 'Jost', sans-serif
+}
+
+.w {
+    flex: none;
+    min-height: calc(152 * var(--u));
+    background: var(--cream);
+    color: var(--ink);
+    border-radius: calc(18 * var(--u));
+    padding: calc(26 * var(--u)) calc(30 * var(--u));
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+    animation: drop .6s cubic-bezier(.2, 1.2, .4, 1)
+}
+
+@keyframes drop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(.9)
+    }
+}
+
+.w div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: calc(14 * var(--u));
+    margin-bottom: calc(14 * var(--u));
+    border-bottom: 1px dashed #e6d3a8
+}
+
+.w b {
+    font-size: calc(28 * var(--u))
+}
+
+.w i {
+    color: var(--blue);
+    font-size: calc(27 * var(--u))
+}
+
+.w em {
+    font-style: normal;
+    background: #d6ead2;
+    color: #2c5a2c;
+    border-radius: 30px;
+    padding: 2px calc(22 * var(--u));
+    font-size: calc(22 * var(--u))
+}
+
+/* kalender Oktober (teks saja; gambar kalender dari kamu) */
+.cal h3 {
+    font-size: calc(44 * var(--u));
+    text-align: center;
+    color: #6b4a3a;
+    margin-bottom: calc(14 * var(--u))
+}
+
+#oct {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: calc(18 * var(--u));
+    text-align: center;
+    font: calc(24 * var(--u)) 'Playfair Display', serif;
+    color: #6b4a3a
+}
+
+#oct .o {
+    opacity: .4
+}
+
+#oct .h {
+    background: var(--blue);
+    color: #fff;
+    border-radius: 50%;
+    animation: pulse 2s infinite
+}
+
+/* mini player */
+.player {
+    background: rgba(40, 40, 40, .88);
+    border-radius: calc(26 * var(--u));
+    padding: calc(22 * var(--u)) calc(34 * var(--u));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(14 * var(--u));
+    font-family: 'Jost';
+    font-size: calc(22 * var(--u));
+    align-content: center
+}
+
+.player i {
+    flex: 1;
+    height: calc(8 * var(--u));
+    background: #666;
+    border-radius: 9px
+}
+
+.player u {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #ddd;
+    border-radius: 9px
+}
+
+.player div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: calc(46 * var(--u))
+}
+
+/* navbar bawah */
+#nav {
+    position: fixed;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: 50%;
+    translate: -50% 140px;
+    width: min(440px, 94vw);
+    display: flex;
+    justify-content: space-around;
+    background: rgba(14, 32, 64, .82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 28px;
+    padding: 8px 6px;
+    z-index: 50;
+    transition: translate .8s cubic-bezier(.2, 1.1, .3, 1)
+}
+
+body:not(.locked) #nav {
+    translate: -50% 0
+}
+
+#nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 6px 8px;
+    border-radius: 18px;
+    color: #b8c6dd;
+    text-decoration: none;
+    font: 11px 'Jost';
+    transition: .3s
+}
+
+#nav svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+#nav a.on {
+    color: #fff;
+    background: var(--blue);
+    transform: translateY(-6px)
+}
+
+/* sheet ucapan */
+#sheet {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 10, 20, .6);
+    z-index: 90;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center
+}
+
+#sheet[hidden],
+#lb[hidden] {
+    display: none
+}
+
+#sheet>div {
+    width: min(480px, 100%);
+    background: var(--cream);
+    color: var(--ink);
+    padding: 24px;
+    border-radius: 26px 26px 0 0;
+    font-family: 'Jost';
+    animation: up .4s cubic-bezier(.2, 1, .3, 1)
+}
+
+@keyframes up {
+    from {
+        translate: 0 100%
+    }
+}
+
+#sheet h3 {
+    margin-bottom: 12px;
+    font-weight: 500
+}
+
+#sheet textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #7b2b3a;
+    border-radius: 14px;
+    background: #fffdf8;
+    font-size: 16px
+}
+
+#sheet .row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px
+}
+
+#sheet .row button {
+    flex: 1;
+    padding: 14px;
+    border-radius: 14px;
+    background: #e4dccd
+}
+
+#sheet #ok {
+    background: #052f55;
+    color: #fff
+}
+
+/* lightbox flip-book */
+#lb {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 10, 20, .94);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+#lbs {
+    width: min(460px, 90vw);
+    height: 70vh;
+    perspective: 1200px;
+    position: relative;
+    touch-action: pan-y
+}
+
+#lbs img {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform .7s, opacity .7s;
+    backface-visibility: hidden;
+    cursor: zoom-in
+}
+
+#lbs img.zoom {
+    scale: 2;
+    cursor: zoom-out
+}
+
+#lb>button {
+    position: absolute;
+    color: #fff;
+    font-size: 40px;
+    z-index: 2;
+    padding: 10px 18px
+}
+
+#lbx {
+    top: 10px;
+    right: 10px
+}
+
+#lbp {
+    left: 4px
+}
+
+#lbn {
+    right: 4px
+}
+
+#toast {
+    position: fixed;
+    left: 50%;
+    bottom: 110px;
+    translate: -50% 20px;
+    background: #fff;
+    color: var(--ink);
+    padding: 10px 22px;
+    border-radius: 30px;
+    font: 15px 'Jost';
+    opacity: 0;
+    transition: .4s;
+    z-index: 120;
+    pointer-events: none
+}
+
+#toast.show {
+    opacity: 1;
+    translate: -50% 0
+}
+
+.hrt {
+    position: fixed;
+    pointer-events: none;
+    z-index: 130;
+    font-size: 22px;
+    animation: fly 1.6s ease-out forwards
+}
+
+@keyframes fly {
+    to {
+        transform: translate(var(--x), -260px) rotate(var(--r));
+        opacity: 0
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .sw,
+    .pulse {
+        animation: none
+    }
+
+    .rv {
+        transition-duration: .01s
+    }
+}
+
+
+/* ======= POSISI TIAP ELEMEN (left/top/width = persen dari kanvas 1080x1920) ======= */
+/* ---------- cover ---------- */
+#cover .wedding-of {
+    top: 5.833%;
+    font-size: 4.259cqw;
+    font-family: 'Jost', sans-serif
+}
+
+#cover .nama {
+    top: 9.896%;
+    font-size: 9.722cqw;
+    transition-delay: .2s
+}
+
+#cover .dear {
+    top: 78.385%;
+    font-size: 4.074cqw;
+    font-family: 'Jost', sans-serif;
+    transition-delay: .6s
+}
+
+#cover .guest {
+    top: 83.073%;
+    font-size: 4.259cqw;
+    font-family: 'Jost', sans-serif;
+    transition-delay: .7s
+}
+
+#cover .btn-buka {
+    left: 28.241%;
+    top: 87.76%;
+    width: 43.981%;
+    height: 4.323%;
+    font-size: 3.333cqw;
+    font-family: 'Jost', sans-serif;
+    background: #8fa3b5;
+    border-radius: 3.704cqw;
+    transition-delay: .9s
+}
+
+/* ---------- home ---------- */
+#home .bismillah {
+    top: 28.542%;
+    font-size: 3.519cqw
+}
+
+#home .ayat {
+    left: 26.852%;
+    top: 33.594%;
+    width: 48.148%;
+    font-size: 3.519cqw;
+    line-height: 1.45;
+    transition-delay: .15s
+}
+
+#home .terjemah {
+    left: 23.148%;
+    top: 44.531%;
+    width: 56.481%;
+    font-size: 2.5cqw;
+    line-height: 1.3;
+    transition-delay: .3s
+}
+
+#home .sumber {
+    top: 59.792%;
+    font-size: 2.407cqw;
+    font-weight: 600
+}
+
+/* ---------- mempelai ---------- */
+#mempelai .salam {
+    top: 14.062%;
+    font-size: 5.926cqw
+}
+
+#mempelai .pembuka {
+    left: 31.481%;
+    top: 20.417%;
+    width: 37.037%;
+    font-size: 2.222cqw;
+    line-height: 1.12;
+    transition-delay: .1s
+}
+
+#mempelai .nama-kaina {
+    top: 27.083%;
+    font-size: 5cqw;
+    transition-delay: .1s
+}
+
+#mempelai .ortu-kaina {
+    left: 34.259%;
+    top: 31.51%;
+    width: 31.481%;
+    font-size: 2.407cqw;
+    line-height: 1.2
+}
+
+#mempelai .ig-kaina {
+    left: 48.148%;
+    top: 35.938%;
+    width: 3.889%
+}
+
+#mempelai .dan {
+    top: 40.365%;
+    font-size: 4.63cqw
+}
+
+#mempelai .nama-raka {
+    top: 44.01%;
+    font-size: 5.37cqw
+}
+
+#mempelai .ortu-raka {
+    left: 34.259%;
+    top: 48.177%;
+    width: 31.481%;
+    font-size: 2.407cqw;
+    line-height: 1.2
+}
+
+#mempelai .ig-raka {
+    left: 48.148%;
+    top: 53.229%;
+    width: 3.889%
+}
+
+#mempelai .bulan {
+    top: 78.125%;
+    font-size: 12.037cqw;
+    font-family: 'Caveat', serif
+}
+
+#mempelai .tanggal {
+    top: 89.167%;
+    font-size: 4.63cqw;
+    transition-delay: .2s
+}
+
+#mempelai .wk span:nth-child(1) {
+    left: 22.685%
+}
+
+#mempelai .wk span:nth-child(2) {
+    left: 31.204%
+}
+
+#mempelai .wk span:nth-child(3) {
+    left: 40.278%
+}
+
+#mempelai .wk span:nth-child(4) {
+    left: 48.796%
+}
+
+#mempelai .wk span:nth-child(5) {
+    left: 57.407%
+}
+
+#mempelai .wk span:nth-child(6) {
+    left: 66.481%
+}
+
+#mempelai .wk span:nth-child(7) {
+    left: 74.537%
+}
+
+/* ---------- acara ---------- */
+#acara .judul {
+    left: 13.889%;
+    top: 10%;
+    width: 70.37%;
+    font-size: 7.037cqw
+}
+
+#acara .tanggal {
+    left: 13.889%;
+    top: 17%;
+    width: 70.37%;
+    font-size: 3.704cqw;
+    line-height: 1.05;
+    transition-delay: .1s
+}
+
+#acara .tempat {
+    left: 13.889%;
+    top: 25%;
+    width: 70.37%;
+    font-size: 3.889cqw;
+    line-height: 1.02;
+    transition-delay: .2s
+}
+
+#acara .btn-maps {
+    left: 28.704%;
+    top: 39.062%;
+    width: 40.741%;
+    height: 3.542%;
+    font-size: 3.148cqw;
+    background: #2e4a82;
+    border-radius: 1.852cqw
+}
+
+#acara .catatan {
+    left: 27.778%;
+    top: 44.688%;
+    width: 42.593%;
+    font-size: 2.5cqw;
+    line-height: 1.1
+}
+
+#acara .judul-galeri {
+    top: 52.083%;
+    font-size: 7.593cqw
+}
+
+/* ---------- gift ---------- */
+#gift .judul {
+    left: 14.815%;
+    top: 4.427%;
+    width: 70.37%;
+    font-size: 6.667cqw
+}
+
+#gift .teks {
+    left: 24.074%;
+    top: 10.833%;
+    width: 51.852%;
+    font-size: 3.148cqw;
+    line-height: 1.25;
+    transition-delay: .1s
+}
+
+#gift .btn-lebih {
+    left: 30.463%;
+    top: 22.031%;
+    width: 40.741%;
+    height: 3.49%;
+    font-size: 3.148cqw;
+    background: #052f55;
+    border-radius: 2.222cqw
+}
+
+#gift .teks-bank1 {
+    left: 14.815%;
+    top: 36.771%;
+    width: 70.37%;
+    font-size: 3.056cqw;
+    line-height: 1.18
+}
+
+#gift .btn-bank1 {
+    left: 33.611%;
+    top: 44.531%;
+    width: 32.685%;
+    height: 3.021%;
+    font-size: 2.87cqw;
+    background: #052f55;
+    border-radius: 1.481cqw
+}
+
+#gift .teks-bank2 {
+    left: 14.815%;
+    top: 57.5%;
+    width: 70.37%;
+    font-size: 3.056cqw;
+    line-height: 1.18
+}
+
+#gift .btn-bank2 {
+    left: 33.611%;
+    top: 65.26%;
+    width: 32.685%;
+    height: 3.021%;
+    font-size: 2.87cqw;
+    background: #052f55;
+    border-radius: 1.481cqw
+}
+
+#gift .teks-alamat {
+    left: 24.074%;
+    top: 80.104%;
+    width: 51.852%;
+    font-size: 3.056cqw;
+    line-height: 1.22
+}
+
+#gift .btn-alamat {
+    left: 33.611%;
+    top: 85.99%;
+    width: 32.685%;
+    height: 3.021%;
+    font-size: 2.87cqw;
+    background: #052f55;
+    border-radius: 1.481cqw
+}
+
+/* ---------- rsvp ---------- */
+#rsvp .judul {
+    top: 9.375%;
+    font-size: 8.148cqw
+}
+
+#rsvp .nama-input {
+    left: 26.852%;
+    top: 15.729%;
+    width: 46.296%;
+    height: 3.958%;
+    font-size: 2.593cqw
+}
+
+#rsvp .hadir-select {
+    left: 26.852%;
+    top: 20.729%;
+    width: 46.296%;
+    height: 4.062%;
+    font-size: 2.593cqw;
+    transition-delay: .1s
+}
+
+#rsvp .tamu-select {
+    left: 26.852%;
+    top: 25.885%;
+    width: 46.296%;
+    height: 4.062%;
+    font-size: 2.593cqw;
+    transition-delay: .2s
+}
+
+#rsvp .btn-kirim {
+    left: 26.389%;
+    top: 33.333%;
+    width: 48.611%;
+    height: 4.167%;
+    font-size: 3.148cqw;
+    background: #052f55;
+    border-radius: 2.037cqw;
+    transition-delay: .3s
+}
+/* Judul Wishes */
+#rsvp .judul-wishes {
+    position: absolute;
+    left: 20%;
+    top: 60%;                    /* turunin dikit biar nggak nabrak form */
+    width: 60%;
+    text-align: center;
+    font-size: 7cqw;
+    color: #fff;                 /* putih karena di atas background navy */
+    margin: 0;
+    z-index: 5;
+}
+
+/* Container wishes: perbesar biar muat banyak ucapan */
+#rsvp .wishes {
+    position: absolute;
+    left: 15%;
+    top: 68%;                    /* turunin dikit */
+    width: 70%;                  /* lebih lebar biar nggak sempit */
+    height: 28%;                 /* perbesar tinggi */
+    max-height: 28%;             /* konsisten */
+    overflow-y: auto;
+    text-align: center;
+    color: #fff;
+    font-size: 2.8cqw;
+    line-height: 1.5;
+    padding: 1.5cqw 2cqw;
+    z-index: 5;
+    box-sizing: border-box;
+}
+/* ---------- closing ---------- */
+#closing .label-tanggal {
+    left: 15.278%;
+    top: 19.167%;
+    width: 21.759%;
+    font-size: 2.778cqw;
+    z-index: 4;
+    transition-delay: .3s
+}
+
+#closing .label-alamat {
+    left: 15.278%;
+    top: 21.354%;
+    width: 21.759%;
+    font-size: 1.759cqw;
+    line-height: 1.1;
+    font-family: 'Courier Prime', serif;
+    z-index: 4;
+    transition-delay: .35s;
+    font-weight: 700
+}
+
+#closing .player {
+    left: 50.926%;
+    top: 19.01%;
+    width: 36.111%;
+    height: 7.552%;
+    z-index: 6;
+    transition-delay: .3s
+}
+
+#closing .plakat-teks {
+    left: 43.981%;
+    top: 30.625%;
+    width: 43.981%;
+    font-size: 2.778cqw;
+    line-height: 1.2;
+    z-index: 3;
+    transition-delay: .4s
+}
+
+#closing .plakat-raka {
+    left: 43.981%;
+    top: 35.417%;
+    width: 43.981%;
+    font-size: 10.37cqw;
+    z-index: 3;
+    transition-delay: .5s
+}
+
+#closing .plakat-dan {
+    left: 43.981%;
+    top: 41.927%;
+    width: 43.981%;
+    font-size: 5.37cqw;
+    z-index: 3;
+    transition-delay: .6s
+}
+
+#closing .plakat-kaina {
+    left: 43.981%;
+    top: 45.833%;
+    width: 43.981%;
+    font-size: 10.37cqw;
+    z-index: 3;
+    transition-delay: .7s
+}
+
+#closing .kalender-teks {
+    left: 15.741%;
+    top: 35%;
+    width: 28.704%;
+    height: 17.188%;
+    z-index: 4;
+    rotate: -11deg;
+    transition-delay: .3s
+}
+
+#closing .terima-kasih {
+    left: 56.944%;
+    top: 64.323%;
+    width: 30.556%;
+    font-size: 3.796cqw;
+    line-height: 1.32;
+    transition-delay: .3s
+}
+
+#closing .salam-penutup {
+    left: 56.944%;
+    top: 75.521%;
+    width: 30.556%;
+    font-size: 3.796cqw;
+    line-height: 1.32;
+    transition-delay: .5s
+}
+
+.save-wrap {
+    position: absolute;
+    overflow: hidden;
+    /* top/height/left/width dari inline HTML */
+}
+
+.save-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    z-index: 0;
+}
+
+.save-overlay {
+    position: absolute;
+    inset: 0;
+    /* ← balik ke 0, bukan 300% */
+    background: rgba(27, 47, 82, 0.55);
+    z-index: 1;
+}
+
+.save-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2cqw;
+    padding: 4% 6%;
+    color: #fff;
+}
+
+.save-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.4cqw;
+    font-weight: 600;
+    text-align: center;
+    padding: 10% 6% 0;
+    margin: 0;
+}
+
+.save-cd {
+    display: flex;
+    justify-content: center;
+    gap: 4cqw;
+    width: 100%;
+    font-size: 6.5cqw;
+}
+
+.save-cd div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .2em;
+}
+
+.save-cd b {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.save-cd div:not(:last-child) b::after {
+    content: ":";
+}
+
+.save-cd span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .38em;
+    line-height: 1;
+    opacity: .85;
+}
+/* ===== GIFT ===== */
+#gift {
+  --bleed: 0%;
+  height: auto;
+  aspect-ratio: auto;
+  min-height: 100cqw;
+  overflow-x: hidden;
+}
+
+.gift-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 4cqw 8cqw 30cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gift-intro,
+.gift-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gift-intro { aspect-ratio: 760 / 545; }
+.gift-card  { aspect-ratio: 760 / 420; }
+
+.gift-card-bg {
+  position: absolute;
+  inset: calc(var(--bleed) * -1);
+  width: calc(100% + var(--bleed) * 2);
+  height: calc(100% + var(--bleed) * 2);
+  max-width: none;
+  object-fit: fill;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* isi kartu */
+/* isi kartu: kurangi padding kiri-kanan agar teks lebih melebar */
+.gift-intro-content,
+.gift-card-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 -7%;              /* <-- dari 7% jadi 4% */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5cqw;
+  box-sizing: border-box;
+}
+/* JUDUL "Wedding Gift" — jangan terlalu besar */
+.gift-intro-content .judul {
+  font-size: 5.5cqw;        /* <-- diturunkan dari 6.6cqw */
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* TEKS "Kehadiran dan doa restu..." — jangan terlalu besar */
+.gift-intro-content .teks,
+.gift-card-content p {
+  font-size: 2.8cqw;        /* <-- diturunkan dari 3.2cqw */
+  line-height: 1.45;
+  margin: 0;
+  color: var(--ink);
+}
+
+/* TOMBOL — padding jangan terlalu besar */
+.btn-lebih,
+.gift-card .btn {
+  background: #052f55;
+  color: #fff;
+  border-radius: 2cqw;
+  padding: 1.5cqw 4.5cqw;   /* <-- dikurangi dari 2cqw 5.5cqw */
+  font-size: 2.8cqw;        /* <-- sedikit diturunkan */
+  font-family: 'Jost', sans-serif;
+  white-space: nowrap;
+}
+
+.btn-lebih {
+  padding: 1.8cqw 6cqw;     /* <-- dikurangi dari 2.5cqw 8cqw */
+  font-size: 3cqw;
+}
+
+/* ===== EXPAND / COLLAPSE ===== */
+.gift-extra {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .5s ease;
+}
+
+.gift-extra.open {
+  grid-template-rows: 1fr;
+}
+
+.gift-extra-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5cqw;
+  padding-top: 0;
+  opacity: 0;
+  transition: opacity .4s ease, padding-top .5s ease;
+}
+
+.gift-extra.open .gift-extra-inner {
+  padding-top: 5cqw;
+  opacity: 1;
+}
+
+/* anggrek */
+.anggrek-atas,
+.anggrek-bawah {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  max-width: none;
+}
+
+.anggrek-atas  { left: 84%; top: -4%; width: 22%; }
+.anggrek-bawah { left: -6%; top: 83%; width: 23%; }
+
+/* Dropdown Jumlah Tamu */
+#rGc.tamu-select {
+    position: absolute;
+    padding: 2.5cqw 8cqw 2.5cqw 3cqw;   /* kanan lebih besar untuk ikon panah */
+    border: 1px solid #2a4a7a;
+    border-radius: 1.5cqw;
+    font-size: 2.8cqw;
+    font-family: inherit;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #2a4a7a;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232a4a7a' stroke-width='3'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 2.5cqw center;
+    background-size: 3cqw;
+    line-height: 1.3;
+    height: auto;
+    min-height: 8cqw;
+    cursor: pointer;
+}
+
+/* saat opsi sudah dipilih (bukan placeholder), warna teks tetap biru */
+#rGc.tamu-select:valid {
+    color: #2a4a7a;
+}

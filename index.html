@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>The Wedding of Raka & Kaina</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght@600&family=Homemade+Apple&family=Caveat:wght@600&family=Jost:wght@400;500&family=Amiri&family=Courier+Prime&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="locked">
+    <audio id="bgm" src="images/audio/lagu.mp3" loop preload="none"></audio>
+    <main id="app">
+
+        <!-- ========== 1. COVER ========== -->
+        <section id="cover" class="stage">
+            <p class="wedding-of rv" data-a="up" style="top:6%; font-size:3.4cqw; font-family:'Jost'">The Wedding Of</p>
+
+            <h1 class="nama script rv" data-a="pop" style="top:12%; font-size:9.7cqw">Raka &amp; Kaina</h1>
+
+            <!-- foto: (100-54)/2 = 23% -->
+            <div class="foto photo rv" data-a="pop"
+                style="left:23%; top:29%; width:54%; height:38%; transition-delay:.4s">
+                <img src="images/pasangan.jfif" alt="Raka dan Kaina">
+            </div>
+
+            <!-- frame: (100-80.222)/2 = 9.889% -->
+            <img class="frame rv" data-a="pop" src="images/33.png" alt=""
+                style="left:9.889%; top:21.875%; width:80.222%; z-index:3; transition-delay:.4s">
+
+            <p class="dear rv" data-a="up" style="top:73%; font-size:4.1cqw; font-family:'Jost'">Dear:</p>
+
+            <p class="guest rv" data-a="up" id="guest" style="top:78%; font-size:4.3cqw; font-family:'Jost'">Tamu
+                Undangan</p>
+
+            <!-- tombol: (100-44)/2 = 28% -->
+            <button id="openBtn" class="btn-buka btn rv" data-a="up"
+                style="left:28%; top:84%; width:44%; height:4.6%; font-size:3.4cqw; background:#8fa3b5; border-radius:3.7cqw; font-family:'Jost'">
+                Buka Undangan
+            </button>
+        </section>
+
+        <!-- ========== 2. QUOTE + COUNTDOWN ========== -->
+        <section id="home" class="stage">
+            <img class="air rv" data-a="fade" src="images/water.jpg" alt=""
+                style="left:0; top:78.6%; width:100%; z-index:0">
+
+            <img class="kartu rv" data-a="pop" src="images/34.png" alt=""
+                style="left:7.4%; top:13.5%; width:85.2%; z-index:2">
+
+            <img class="mutiara pearl rv" data-a="fade" src="images/35.png" alt=""
+                style="left:-25%; top:0%; width:60%; z-index:3">
+
+            <img class="angsa rv" data-a="pop" src="images/39.png" alt=""
+                style="left:40.7%; top:20%; width:18.5%; z-index:5; transition-delay:.2s">
+
+            <p class="bismillah ar ink rv" data-a="up" style="top:28.5%; font-size:3.5cqw; z-index:3">بِسْمِ اللَّهِ
+                الرَّحْمَنِ الرَّحِيمِ</p>
+
+            <p class="ayat ar ink rv" data-a="up"
+                style="left:26.8%; top:33.6%; width:48.1%; font-size:3.5cqw; line-height:1.45; z-index:3">
+                وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ
+                بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ
+            </p>
+
+            <p class="terjemah ink rv" data-a="up"
+                style="left:23.1%; top:44.5%; width:56.5%; font-size:2.5cqw; line-height:1.3; z-index:3">
+                Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu
+                sendiri, agar kamu tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh,
+                pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.
+            </p>
+
+            <p class="sumber ink rv" data-a="up" style="top:59.8%; font-size:2.4cqw; font-weight:600; z-index:3">(Q.S
+                Ar-Rum : 21)</p>
+
+            <img class="bunga-kiri sw rv" data-a="pop" src="images/36.png" alt=""
+                style="left:-23%; top:40%; width:60%; z-index:4">
+
+            <img class="bunga-kanan-atas sw rv" data-a="pop" src="images/41.png" alt=""
+                style="left:56%; top:5%; width:60%; z-index:4; transform-origin:50% 0; transform:scaleX(-1); ">
+
+            <!-- SAVE THE DATE + countdown -->
+            <div class="save-wrap rv" data-a="up" style="top:72%; left:0; width:100%; height:26%; z-index:2">
+
+                <!-- background image -->
+                <img class="save-bg" src="images/38.png" alt="">
+
+                <!-- lapisan navy di atas background -->
+                <div class="save-overlay"></div>
+
+                <!-- isi teks + countdown -->
+                <div class="save-inner">
+                    <h2 class="save-title">SAVE THE DATE</h2>
+                    <div class="save-cd">
+                        <div><b id="cdD">00</b><span>Days</span></div>
+                        <div><b id="cdH">00</b><span>Hours</span></div>
+                        <div><b id="cdM">00</b><span>Minutes</span></div>
+                        <div><b id="cdS" class="gold">00</b><span>Seconds</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 3. MEMPELAI ========== -->
+        <section id="mempelai" class="stage">
+
+            <!-- frame renda -->
+            <img class="renda rv" data-a="pop" src="images/40.png" alt=""
+                style="left:0%; top:5%; width:180%; height:75%; z-index:1">
+
+            <!-- salam (kaligrafi) -->
+            <img class="salam rv" data-a="up" src="images/45.png" alt="Assalamualaikum"
+                style="left:32.5%; top:22%; width:35%; height:auto; z-index:3">
+
+            <!-- pembuka -->
+            <p class="pembuka ink rv" data-a="up"
+                style="left:31.5%; top:28%; width:37%; font-size:2.2cqw; line-height:1.25; z-index:3">
+                Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk
+                menghadiri acara pernikahan putra-putri kami:
+            </p>
+
+            <!-- ===== Kaina ===== -->
+            <h2 class="nama-kaina script ink rv" data-a="up" style="top:38%; font-size:5cqw; z-index:3">Kaina Larasati
+            </h2>
+
+            <p class="ortu-kaina ink rv" data-a="up"
+                style="left:34.3%; top:42%; width:31.5%; font-size:2.2cqw; line-height:1.2; z-index:3">
+                Putri Bungsu Bapak Sanusi S.M &amp; Ibu Jubaedah
+            </p>
+
+            <a class="ig-kaina ig rv" data-a="pop" href="#" aria-label="Instagram Kaina"
+                style="left:48.1%; top:46%; width:3.9%; z-index:3">
+                <svg viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r=".6" />
+                </svg>
+            </a>
+
+            <!-- tanda & -->
+            <p class="dan script ink rv" data-a="pop" style="top:50%; font-size:4.6cqw; z-index:3">&amp;</p>
+
+            <!-- ===== Raka ===== -->
+            <h2 class="nama-raka script ink rv" data-a="up" style="top:54%; font-size:5.4cqw; z-index:3">Raka Muhammad
+            </h2>
+
+            <p class="ortu-raka ink rv" data-a="up"
+                style="left:34.3%; top:60%; width:31.5%; font-size:2.2cqw; line-height:1.2; z-index:3">
+                Putra Bungsu Bapak Suryadi Sabani &amp; Ibu Atikah Sari
+            </p>
+
+            <a class="ig-raka ig rv" data-a="pop" href="#" aria-label="Instagram Raka"
+                style="left:48.1%; top:64%; width:3.9%; z-index:3">
+                <svg viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r=".6" />
+                </svg>
+            </a>
+
+            <!-- bunga dekorasi -->
+            <img class="bunga-kanan-atas sw rv" data-a="pop" src="images/41.png" alt=""
+                style="left:56%; top:5%; width:60%; z-index:4; transform-origin:50% 0; transform:scaleX(-1)">
+            <img class="bunga-kiri-bawah sw rv" data-a="pop" src="images/41.png" alt=""
+                style="left:-10%; top:58%; width:60%; z-index:4; transform-origin:50% 0; transition-delay:.2s; animation-delay:.2s">
+            <img class="strip rv" data-a="pop" src="images/44.png" alt=""
+                style="left:50%; top:45%; width:60%; z-index:3; rotate:0deg; transition-delay:.3s">
+            <img class="anggrek sw rv" data-a="pop" src="images/42.png" alt=""
+                style="left:75%; top:70%; width:25%; z-index:5; transition-delay:.4s; animation-delay:.4s">
+            <img class="anggrek sw rv" data-a="pop" src="images/43.png" alt=""
+                style="left:79%; top:68%; width:20%; z-index:6; transition-delay:.4s; animation-delay:.4s">
+
+            <!-- ===== MEI + tanggal ===== -->
+            <h2 class="bulan rv" data-a="pop" style="top:82%; font-size:12cqw; font-family:'Caveat'; z-index:3">MEI</h2>
+
+            <img class="hati heart pulse" src="images/heart.png" alt="" style="left:44%; top:85%; width:10%; z-index:2">
+
+            <div class="tanggal wk rv" data-a="up" style="top:92%; left:0; width:100%; font-size:4.6cqw; z-index:3">
+                <span><small>senin</small>21</span>
+                <span><small>selasa</small>22</span>
+                <span><small>rabu</small>23</span>
+                <span><small>kamis</small>24</span>
+                <span><small>jumat</small>25</span>
+                <span><small>sabtu</small>26</span>
+                <span><small>minggu</small>27</span>
+            </div>
+        </section>
+
+
+        <!-- ========== 4. ACARA + GALLERY ========== -->
+        <section id="acara" class="stage">
+            <img class="mutiara pearl rv" data-a="fade" src="images/35.png" alt=""
+                style="left:-30%; top:0%; width:60%; z-index:3">
+
+            <img class="kartu rv" data-a="pop" src="images/46.png" alt="" style="left:10%; top:5%; width:80%">
+
+            <h2 class="judul script ink rv" data-a="up">Reception</h2>
+            <p class="tanggal ink rv" data-a="up">Saturday, 14 December 2026<br>18.30 — 21.00 WIB</p>
+            <p class="tempat ink rv" data-a="up">THE GARDEN HALL<br>Jl. Senopati No. 88<br>Jakarta Selatan, Indonesia
+            </p>
+            <img class="bunga sw rv" data-a="pop" src="images/41.png" alt=""
+                style="left:70%; top:1.562%; width:40%; z-index:4; transform-origin:50% 0">
+            <a class="btn-maps btn rv" data-a="up" target="_blank" rel="noopener"
+                href="https://maps.google.com/?q=The+Garden+Hall+Jl.+Senopati+No.+88+Jakarta+Selatan">Open in Google
+                Maps</a>
+            <p class="catatan rv" data-a="up">We’d love to celebrate this special evening with you.</p>
+            <h2 id="gallery" class="judul-galeri script rv" data-a="up">Wedding Gallery</h2>
+            <button class="foto1 g rv" data-a="pop" data-i="0"
+                style="left:13.611%; top:60.573%; width:25.648%; height:16.146%"><img src="images/pasangan.jfif"
+                    alt="Galeri 1"></button>
+            <button class="foto2 g rv" data-a="pop" data-i="1"
+                style="left:42.222%; top:60.573%; width:44.259%; height:16.146%; transition-delay:.15s"><img
+                    src="images/gallery1.jfif" alt="Galeri 2"></button>
+            <button class="foto3 g rv" data-a="pop" data-i="2"
+                style="left:13.611%; top:79.219%; width:35.278%; height:16.094%; transition-delay:.3s"><img
+                    src="images/gallery2.jfif" alt="Galeri 3"></button>
+            <button class="foto4 g rv" data-a="pop" data-i="3"
+                style="left:52.593%; top:79.219%; width:33.889%; height:16.094%; transition-delay:.45s"><img
+                    src="images/gallery3.jfif" alt="Galeri 4"></button>
+            <button class="foto4 g rv" data-a="pop" data-i="3"
+                style="left:52.593%; top:79.219%; width:33.889%; height:16.094%; transition-delay:.45s"><img
+                    src="images/gallery4.jfif" alt="Galeri 5"></button>
+            <img class="hortensia sw rv" data-a="up" src="images/hydrangea.png" alt=""
+                style="left:5.556%; top:90.625%; width:90.741%; z-index:4; transform-origin:50% 100%">
+        </section>
+
+        <!-- ========== 5. GIFT ========== -->
+        <section id="gift" class="stage">
+            <div class="gift-wrap">
+
+                <!-- kartu utama (selalu tampil) -->
+                <div class="gift-intro rv" data-a="up">
+                    <img class="gift-card-bg" src="images/46.png" alt="">
+                    <div class="gift-intro-content">
+                        <h2 class="judul script ink">Wedding Gifts</h2>
+                        <p class="teks ink">
+                            Kehadiran dan doa restu Anda adalah kado terindah bagi kami. Namun, bagi Bapak/Ibu/Saudara/i
+                            yang ingin memberikan tanda kasih, dapat mengirimkannya melalui:
+                        </p>
+                        <button id="moreGift" class="btn-lebih btn" aria-expanded="false">Lihat Lebih Banyak</button>
+                    </div>
+
+                    <img class="anggrek-atas" src="images/orchid.png" alt="">
+                    <img class="anggrek-bawah" src="images/orchid.png" alt="">
+                </div>
+
+                <!-- expand/collapse: muncul DI BAWAH kartu utama -->
+                <div id="giftExtra" class="gift-extra">
+                    <div class="gift-extra-inner">
+
+                        <div class="gift-card">
+                            <img class="gift-card-bg" src="images/46.png" alt="">
+                            <div class="gift-card-content">
+                                <p class="ink">Bank BCA<br>No. Rekening: 1234567890<br>a.n. Nama Pengantin</p>
+                                <button class="btn copy" data-t="1234567890">Salin Nomor Rekening</button>
+                            </div>
+                        </div>
+
+                        <div class="gift-card">
+                            <img class="gift-card-bg" src="images/46.png" alt="">
+                            <div class="gift-card-content">
+                                <p class="ink">Bank BCA<br>No. Rekening: 1234567890<br>a.n. Nama Pengantin</p>
+                                <button class="btn copy" data-t="1234567890">Salin Nomor Rekening</button>
+                            </div>
+                        </div>
+
+                        <div class="gift-card">
+                            <img class="gift-card-bg" src="images/46.png" alt="">
+                            <div class="gift-card-content">
+                                <p class="ink">THE GARDEN HALL, <br>Jl. Senopati No. 88, Jakarta Selatan, Indonesia</p>
+                                <button class="btn copy"
+                                    data-t="THE GARDEN HALL, Jl. Senopati No. 88, Jakarta Selatan, Indonesia">
+                                    Salin Alamat
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========== 6. RSVP + WISHES ========== -->
+        <section id="rsvp" class="stage">
+
+            <!-- BACKGROUND RENDA (frame putih) -->
+            <img class="renda rv" data-a="pop" src="images/48.png" alt=""
+                style="left:10.185%; top:1.562%; width:79.167%; z-index:1">
+
+            <!-- BUNGA ATAS KANAN (nempel di frame) -->
+            <img class="bunga-atas sw rv" data-a="pop" src="images/41.png" alt=""
+                style="left:65%; top:-2%; width:35%; z-index:6; transform-origin:50% 0">
+
+            <!-- JUDUL RSVP -->
+            <h2 class="judul script ink rv" data-a="up"
+                style="left:25%; top:10%; width:50%; text-align:center; z-index:5; font-size:7cqw; margin:0">
+                Reservation
+            </h2>
+
+            <!-- ===== FORM RSVP ===== -->
+            <!-- Tombol Hadir / Tidak Hadir -->
+            <div class="rsvp-btns rv" data-a="up" style="left:25%; top:17%; width:50%; display:flex; gap:3%; z-index:5">
+                <button type="button" class="btn-hadir" data-val="Hadir"
+                    style="flex:1; background:#2a4a7a; color:#fff; border:none; border-radius:1.5cqw; padding:3cqw 0; font-size:3cqw; cursor:pointer">
+                    Hadir
+                </button>
+                <button type="button" class="btn-tidak" data-val="Tidak Hadir"
+                    style="flex:1; background:#2a4a7a; color:#fff; border:none; border-radius:1.5cqw; padding:3cqw 0; font-size:3cqw; cursor:pointer">
+                    Tidak Hadir
+                </button>
+            </div>
+            <input type="hidden" id="rAtt" value="">
+
+            <!-- Input Nama -->
+            <input id="rName" class="nama-input fld rv" data-a="up" placeholder="Nama" autocomplete="name"
+                style="left:25%; top:25%; width:50%; padding:3cqw 4cqw; border:1px solid #ccc; border-radius:1.5cqw; font-size:2.8cqw; z-index:5; box-sizing:border-box">
+
+            <select id="rGc" class="tamu-select fld rv" data-a="up" aria-label="Jumlah Tamu"
+                style="left:25%; top:30%; width:50%; z-index:5">
+                <option value="">Jumlah Tamu</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <!-- Tombol Kirim -->
+            <button id="send" class="btn-kirim btn rv" data-a="up"
+                style="left:25%; top:35%; width:50%; background:#2a4a7a; color:#fff; border:none; border-radius:1.5cqw; padding:3cqw 0; font-size:3cqw; cursor:pointer; z-index:5">
+                Kirim
+            </button>
+
+            <!-- ===== BUNGA KIRI BAWAH (optional, nempel frame) ===== -->
+            <img class="bunga-kiri-bawah sw rv" data-a="pop" src="images/49.png" alt=""
+                style="left:-15%; top:70%; width:45%; z-index:1; transform-origin:50% 0; transition-delay:.2s; animation-delay:.2s">
+
+            <!-- ===== WISHES ===== -->
+            <h2 class="judul-wishes script ink rv" data-a="up">Wishes</h2>
+
+            <div id="wishes" class="wishes rv" data-a="up"></div>
+        </section>
+
+        <!-- ========== 7. CLOSING ========== -->
+        <section id="closing" class="stage">
+
+            <!-- 1. BUNGA CALLA (paling belakang) -->
+            <img class="calla sw rv" data-a="pop" src="images/50.png" alt=""
+                style="left:56.481%; top:13.281%; width:12.037%; z-index:1; transform-origin:50% 100%">
+
+            <!-- 2. AMPLOP BESAR -->
+            <img class="amplop rv" data-a="pop" src="images/6.png" alt=""
+                style="left:12.037%; top:5.99%; width:43.519%; z-index:2">
+
+            <!-- 3. FOTO DI DALAM AMPLOP -->
+            <img class="foto-amplop rv" data-a="pop" src="images/pasangan.jfif" alt=""
+                style="left:32.9%; top:10.8%; width:20%; z-index:4; rotate:8deg">
+
+            <!-- 4. AMPLOP ATAS (yang lebih besar, diputar) -->
+            <img class="amplop rv" data-a="pop" src="images/40.png" alt=""
+                style="left:25%; top:7%; width:35%; z-index:3; rotate:8deg">
+
+            <!-- 5. LABEL PUTIH + TEKS TANGGAL & ALAMAT -->
+            <img class="label rv" data-a="pop" src="images/54.png" alt=""
+                style="left:15.278%; top:16.927%; width:30%; z-index:5; transition-delay:.2s">
+
+            <p class="label-alamat ink rv" data-a="up"
+                style="left:18.5%; top:20%; width:24%; text-align:center; z-index:6; transform:rotate(-1deg)">
+                THE GARDEN HALL<br>Jl. Senopati No. 88<br>Jakarta Selatan, Indonesia
+            </p>
+
+            <!-- 6. AMPLOP DEPAN (lipatan atas) -->
+            <img class="amplop rv" data-a="pop" src="images/5.png" alt=""
+                style="left:12%; top:11.5%; width:43.519%; z-index:7">
+
+            <!-- 7. SEGEL BIRU -->
+            <img class="segel seal pulse" src="images/56.png" alt=""
+                style="left:36.111%; top:21.094%; width:10.185%; z-index:8">
+
+            <!-- 8. BUNGA KIRI -->
+            <img class="bunga-kiri sw rv" data-a="pop" src="images/41.png" alt=""
+                style="left:-5%; top:22.135%; width:35%; z-index:9">
+
+            <!-- 9. KALENDER + TEKS KALENDER -->
+            <img class="kalender rv" data-a="pop" src="images/57.png" alt=""
+                style="left:8.7%; top:30%; width:50%; z-index:10; rotate:-10deg">
+            <div class="kalender-teks cal rv" data-a="up"
+                style="left:14%; top:35%; width:34%; text-align:center; z-index:11; rotate:-10deg">
+                <h3 class="script" style="font-size:4cqw; margin:0 0 1cqw; color:var(--ink)">October 2026</h3>
+                <div id="oct" style="font-size:1.9cqw; line-height:1.5"></div>
+            </div>
+
+            <!-- 10. PLAKAT BIRU + TEKS -->
+            <img class="plakat rv" data-a="pop" src="images/51.png" alt=""
+                style="left:45%; top:26.562%; width:55%; z-index:12; transition-delay:.2s">
+            <p class="plakat-teks rv" data-a="up"
+                style="left:45%; top:35%; width:55%; text-align:center; z-index:13; color:#fff; font-size:2.2cqw; letter-spacing:.5px">
+                JOIN US FOR THE<br>WEDDING OF
+            </p>
+            <h2 class="plakat-raka script rv" data-a="up"
+                style="left:45%; top:42%; width:55%; text-align:center; z-index:13; color:#fff; font-size:7cqw; line-height:1; margin:0">
+                Raka
+            </h2>
+            <p class="plakat-dan script rv" data-a="pop"
+                style="left:45%; top:47%; width:55%; text-align:center; z-index:13; color:#fff; font-size:5cqw; line-height:1; margin:0">
+                &amp;
+            </p>
+            <h2 class="plakat-kaina script rv" data-a="up"
+                style="left:45%; top:52%; width:55%; text-align:center; z-index:13; color:#fff; font-size:7cqw; line-height:1; margin:0">
+                Kaina
+            </h2>
+
+            <!-- 11. FOTO OVAL -->
+            <div class="foto-oval photo rv" data-a="pop"
+                style="left:17%; top:59.792%; width:26.389%; height:22.917%; z-index:14; overflow:hidden; border-radius:50%">
+                <img src="images/pasangan.jfif" alt="" style="width:100%; height:100%; object-fit:cover">
+            </div>
+
+            <!-- 12. FRAME OVAL -->
+            <img class="frame-oval rv" data-a="pop" src="images/33.png" alt=""
+                style="left:10.185%; top:55.469%; width:40.278%; z-index:15">
+
+            <!-- 13. BUNGA SAMPING (di atas frame oval) -->
+            <img class="bunga-samping sw rv" data-a="pop" src="images/49.png" alt=""
+                style="left:40.741%; top:47.656%; width:35%; z-index:16; transform-origin:50% 0; transition-delay:.3s; animation-delay:.3s">
+
+            <!-- 14. TEKS BAWAH -->
+            <p class="terima-kasih rv" data-a="up"
+                style="left:52%; top:66%; width:37%; text-align:center; z-index:17; color:#fff; font-size:3.5cqw; line-height:1.5">
+                Thank you for taking the time to be part of our story.
+            </p>
+            <p class="salam-penutup rv" data-a="up"
+                style="left:48%; top:78%; width:42%; text-align:center; z-index:17; color:#fff; font-size:3.5cqw; line-height:1.5">
+                with love,<br><b style="font-size:3.2cqw">Raka &amp; Kaina</b>
+            </p>
+
+            <!-- 15. PLAYER MUSIK (paling atas) -->
+            <div class="player rv" data-a="up" style="z-index:20">
+                <small id="tc">0:00</small><i><u id="pb"></u></i><small id="tr">-0:00</small>
+                <div>
+                    <button id="prv" aria-label="Mundur">⏮</button>
+                    <button id="pp" aria-label="Putar/jeda">⏸</button>
+                    <button id="nxt" aria-label="Maju">⏭</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <nav id="nav" aria-label="Navigasi">
+        <a href="#home" class="on" aria-label="Beranda"><svg viewBox="0 0 24 24">
+                <path d="M3 11l9-8 9 8" />
+                <path d="M5 10v10h14V10" />
+                <path d="M10 20v-6h4v6" />
+            </svg><span>Home</span></a>
+        <a href="#mempelai" aria-label="Mempelai"><svg viewBox="0 0 24 24">
+                <path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z" />
+            </svg><span>Mempelai</span></a>
+        <a href="#acara" aria-label="Acara"><svg viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16" rx="2" />
+                <path d="M3 10h18M8 3v4M16 3v4" />
+            </svg><span>Acara</span></a>
+        <a href="#gallery" aria-label="Galeri"><svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="16" rx="2" />
+                <circle cx="9" cy="10" r="1.8" />
+                <path d="M21 16l-5-5-9 9" />
+            </svg><span>Galeri</span></a>
+        <a href="#gift" aria-label="Hadiah"><svg viewBox="0 0 24 24">
+                <rect x="3" y="8" width="18" height="4" />
+                <path d="M5 12v9h14v-9M12 8v13M12 8S10 3 7.5 4.5 9 8 12 8zm0 0s2-5 4.5-3.5S15 8 12 8z" />
+            </svg><span>Gift</span></a>
+        <a href="#rsvp" aria-label="RSVP"><svg viewBox="0 0 24 24">
+                <path d="M21 12a8 8 0 01-11.7 7L4 20l1.2-4.5A8 8 0 1121 12z" />
+                <path d="M8.5 11h7M8.5 14h4" />
+            </svg><span>RSVP</span></a>
+    </nav>
+
+    <div id="sheet" hidden>
+        <div>
+            <h3>Tulis ucapan &amp; doa</h3><textarea id="rMsg" rows="4"
+                placeholder="Selamat menempuh hidup baru…"></textarea>
+            <div class="row"><button id="cancel">Batal</button><button id="ok">Kirim Ucapan</button></div>
+        </div>
+    </div>
+    <div id="lb" hidden><button id="lbx" aria-label="Tutup">✕</button><button id="lbp"
+            aria-label="Sebelumnya">‹</button>
+        <div id="lbs"></div><button id="lbn" aria-label="Berikutnya">›</button>
+    </div>
+    <div id="toast"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
