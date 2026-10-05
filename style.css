@@ -393,42 +393,6 @@ img {
     animation: pulse 2s infinite
 }
 
-/* mini player */
-.player {
-    background: rgba(40, 40, 40, .88);
-    border-radius: calc(26 * var(--u));
-    padding: calc(22 * var(--u)) calc(34 * var(--u));
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: calc(14 * var(--u));
-    font-family: 'Jost';
-    font-size: calc(22 * var(--u));
-    align-content: center
-}
-
-.player i {
-    flex: 1;
-    height: calc(8 * var(--u));
-    background: #666;
-    border-radius: 9px
-}
-
-.player u {
-    display: block;
-    height: 100%;
-    width: 0;
-    background: #ddd;
-    border-radius: 9px
-}
-
-.player div {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    font-size: calc(46 * var(--u))
-}
-
 /* navbar bawah */
 #nav {
     position: fixed;
@@ -977,7 +941,7 @@ body:not(.locked) #nav {
     left: 26.852%;
     top: 25.885%;
     width: 46.296%;
-    height: 4.062%;
+    height: 3.958%;
     font-size: 2.593cqw;
     transition-delay: .2s
 }
@@ -1042,15 +1006,6 @@ body:not(.locked) #nav {
     z-index: 4;
     transition-delay: .35s;
     font-weight: 700
-}
-
-#closing .player {
-    left: 50.926%;
-    top: 19.01%;
-    width: 36.111%;
-    height: 7.552%;
-    z-index: 6;
-    transition-delay: .3s
 }
 
 #closing .plakat-teks {

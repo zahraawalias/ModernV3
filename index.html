@@ -12,17 +12,46 @@
     <link rel="preload" as="image" href="images/bg.jpg">
 
     <style>
-        html{background:#0e1a30}
-        #loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#0e1a30;transition:opacity .4s ease}
-        #loader.hide{opacity:0;pointer-events:none}
-        #loader img{width:min(34vw,160px);height:auto}
+        html {
+            background: #0e1a30
+        }
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0e1a30;
+            transition: opacity .4s ease
+        }
+
+        #loader.hide {
+            opacity: 0;
+            pointer-events: none
+        }
+
+        #loader img {
+            width: min(34vw, 160px);
+            height: auto
+        }
     </style>
-    <noscript><style>#loader{display:none}</style></noscript>
+    <noscript>
+        <style>
+            #loader {
+                display: none
+            }
+        </style>
+    </noscript>
 
     <!-- font tidak lagi memblokir render -->
     <link id="gfonts" rel="stylesheet" media="print" onload="this.media='all'"
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght@600&family=Homemade+Apple&family=Caveat:wght@600&family=Jost:wght@400;500&family=Amiri&family=Courier+Prime&display=swap">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght@600&family=Homemade+Apple&family=Caveat:wght@600&family=Jost:wght@400;500&family=Amiri&family=Courier+Prime&display=swap"></noscript>
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght@600&family=Homemade+Apple&family=Caveat:wght@600&family=Jost:wght@400;500&family=Amiri&family=Courier+Prime&display=swap">
+    </noscript>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -43,7 +72,7 @@
                 style="left:23%; top:29.5%; width:54%; height:40%; transition-delay:.4s">
                 <img src="images/pasangan.jfif" alt="Raka dan Kaina">
             </div>
-0
+            0
             <!-- frame: (100-80.222)/2 = 9.889% -->
             <img class="frame rv" data-a="pop" src="images/33.png" alt=""
                 style="left:9.889%; top:21.875%; width:80.222%; z-index:3; transition-delay:.4s">
@@ -55,7 +84,7 @@
 
             <!-- tombol: (100-44)/2 = 28% -->
             <button id="openBtn" class="btn-buka btn rv" data-a="up"
-                style="left:28%; top:90%; width:44%; height:4.6%; font-size:3.4cqw; background:#8fa3b5; border-radius:3.7cqw; font-family:'Jost'">
+                style="left:28%; top:87%; width:44%; height:4.6%; font-size:3.4cqw; background:#8fa3b5; border-radius:3.7cqw; font-family:'Jost'">
                 Buka Undangan
             </button>
         </section>
@@ -210,7 +239,8 @@
             <img loading="lazy" decoding="async" class="mutiara pearl rv" data-a="fade" src="images/35.png" alt=""
                 style="left:-30%; top:0%; width:60%; z-index:3">
 
-            <img loading="lazy" decoding="async" class="kartu rv" data-a="pop" src="images/46.png" alt="" style="left:10%; top:5%; width:80%">
+            <img loading="lazy" decoding="async" class="kartu rv" data-a="pop" src="images/46.png" alt=""
+                style="left:10%; top:5%; width:80%">
 
             <h2 class="judul script ink rv" data-a="up">Reception</h2>
             <p class="tanggal ink rv" data-a="up">Saturday, 14 December 2026<br>18.30 — 21.00 WIB</p>
@@ -224,20 +254,20 @@
             <p class="catatan rv" data-a="up">We’d love to celebrate this special evening with you.</p>
             <h2 id="gallery" class="judul-galeri script rv" data-a="up">Wedding Gallery</h2>
             <button class="foto1 g rv" data-a="pop" data-i="0"
-                style="left:13.611%; top:60.573%; width:25.648%; height:16.146%"><img loading="lazy" decoding="async" src="images/pasangan.jfif"
-                    alt="Galeri 1"></button>
+                style="left:13.611%; top:60.573%; width:25.648%; height:16.146%"><img loading="lazy" decoding="async"
+                    src="images/pasangan.jfif" alt="Galeri 1"></button>
             <button class="foto2 g rv" data-a="pop" data-i="1"
-                style="left:42.222%; top:60.573%; width:44.259%; height:16.146%; transition-delay:.15s"><img loading="lazy" decoding="async"
-                    src="images/gallery1.jfif" alt="Galeri 2"></button>
+                style="left:42.222%; top:60.573%; width:44.259%; height:16.146%; transition-delay:.15s"><img
+                    loading="lazy" decoding="async" src="images/gallery1.jfif" alt="Galeri 2"></button>
             <button class="foto3 g rv" data-a="pop" data-i="2"
-                style="left:13.611%; top:79.219%; width:35.278%; height:16.094%; transition-delay:.3s"><img loading="lazy" decoding="async"
-                    src="images/gallery2.jfif" alt="Galeri 3"></button>
+                style="left:13.611%; top:79.219%; width:35.278%; height:16.094%; transition-delay:.3s"><img
+                    loading="lazy" decoding="async" src="images/gallery2.jfif" alt="Galeri 3"></button>
             <button class="foto4 g rv" data-a="pop" data-i="3"
-                style="left:52.593%; top:79.219%; width:33.889%; height:16.094%; transition-delay:.45s"><img loading="lazy" decoding="async"
-                    src="images/gallery3.jfif" alt="Galeri 4"></button>
+                style="left:52.593%; top:79.219%; width:33.889%; height:16.094%; transition-delay:.45s"><img
+                    loading="lazy" decoding="async" src="images/gallery3.jfif" alt="Galeri 4"></button>
             <button class="foto4 g rv" data-a="pop" data-i="3"
-                style="left:52.593%; top:79.219%; width:33.889%; height:16.094%; transition-delay:.45s"><img loading="lazy" decoding="async"
-                    src="images/gallery4.jfif" alt="Galeri 5"></button>
+                style="left:52.593%; top:79.219%; width:33.889%; height:16.094%; transition-delay:.45s"><img
+                    loading="lazy" decoding="async" src="images/gallery4.jfif" alt="Galeri 5"></button>
             <img loading="lazy" decoding="async" class="hortensia sw rv" data-a="up" src="images/hydrangea.png" alt=""
                 style="left:5.556%; top:90.625%; width:90.741%; z-index:4; transform-origin:50% 100%">
         </section>
@@ -318,7 +348,7 @@
 
             <!-- ===== FORM RSVP ===== -->
             <!-- Tombol Hadir / Tidak Hadir -->
-            <div class="rsvp-btns rv" data-a="up" style="left:25%; top:17%; width:50%; display:flex; gap:3%; z-index:5">
+            <div class="rsvp-btns rv" data-a="up" style="left:25%; top:15%; width:50%; display:flex; gap:3%; z-index:5">
                 <button type="button" class="btn-hadir" data-val="Hadir"
                     style="flex:1; background:#2a4a7a; color:#fff; border:none; border-radius:1.5cqw; padding:3cqw 0; font-size:3cqw; cursor:pointer">
                     Hadir
@@ -332,10 +362,10 @@
 
             <!-- Input Nama -->
             <input id="rName" class="nama-input fld rv" data-a="up" placeholder="Nama" autocomplete="name"
-                style="left:25%; top:25%; width:50%; padding:3cqw 4cqw; border:1px solid #ccc; border-radius:1.5cqw; font-size:2.8cqw; z-index:5; box-sizing:border-box">
+                style="left:25%; top:23%; width:50%; padding:3cqw 4cqw; border:1px solid #ccc; border-radius:1.5cqw; font-size:2.8cqw; z-index:5; box-sizing:border-box">
 
             <select id="rGc" class="tamu-select fld rv" data-a="up" aria-label="Jumlah Tamu"
-                style="left:25%; top:30%; width:50%; z-index:5">
+                style="left:25%; top:28%; width:50%; z-index:5;">
                 <option value="">Jumlah Tamu</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -430,7 +460,8 @@
             <!-- 11. FOTO OVAL -->
             <div class="foto-oval photo rv" data-a="pop"
                 style="left:17%; top:59.792%; width:26.389%; height:22.917%; z-index:14; overflow:hidden; border-radius:50%">
-                <img loading="lazy" decoding="async" src="images/pasangan.jfif" alt="" style="width:100%; height:100%; object-fit:cover">
+                <img loading="lazy" decoding="async" src="images/pasangan.jfif" alt=""
+                    style="width:100%; height:100%; object-fit:cover">
             </div>
 
             <!-- 12. FRAME OVAL -->
@@ -452,14 +483,7 @@
             </p>
 
             <!-- 15. PLAYER MUSIK (paling atas) -->
-            <div class="player rv" data-a="up" style="z-index:20">
-                <small id="tc">0:00</small><i><u id="pb"></u></i><small id="tr">-0:00</small>
-                <div>
-                    <button id="prv" aria-label="Mundur">⏮</button>
-                    <button id="pp" aria-label="Putar/jeda">⏸</button>
-                    <button id="nxt" aria-label="Maju">⏭</button>
-                </div>
-            </div>
+            <img id="pp" class="player rv" data-a="up" src="images/58.png" alt="Putar/Jeda" style=" left:48%; top:18%; width:42%;z-index:20">
 
         </section>
     </main>
@@ -506,43 +530,43 @@
     <div id="toast"></div>
 
     <script>
-    (function () {
-      var L = document.getElementById('loader'), fin, done = false;
-      window.appReady = new Promise(function (r) { fin = r; });
+        (function () {
+            var L = document.getElementById('loader'), fin, done = false;
+            window.appReady = new Promise(function (r) { fin = r; });
 
-      var loadImg = function (s) { return new Promise(function (r) { var i = new Image(); i.onload = i.onerror = r; i.src = s; }); };
+            var loadImg = function (s) { return new Promise(function (r) { var i = new Image(); i.onload = i.onerror = r; i.src = s; }); };
 
-      var fonts = new Promise(function (r) {
-        var l = document.getElementById('gfonts');
-        function go() {
-          l.media = 'all';
-          Promise.all([document.fonts.load('400 1em Jost'), document.fonts.load('400 1em "Homemade Apple"')]).then(r, r);
-        }
-        if (l.sheet) go(); else { l.addEventListener('load', go); l.addEventListener('error', r); }
-      });
+            var fonts = new Promise(function (r) {
+                var l = document.getElementById('gfonts');
+                function go() {
+                    l.media = 'all';
+                    Promise.all([document.fonts.load('400 1em Jost'), document.fonts.load('400 1em "Homemade Apple"')]).then(r, r);
+                }
+                if (l.sheet) go(); else { l.addEventListener('load', go); l.addEventListener('error', r); }
+            });
 
-      // resource kritis = yang tampil di cover
-      var list = ['images/bg.jpg'].concat([].map.call(document.querySelectorAll('#cover img'), function (i) { return i.getAttribute('src'); }));
-      var gate = Promise.all([fonts, Promise.all(list.map(loadImg))]);
+            // resource kritis = yang tampil di cover
+            var list = ['images/bg.jpg'].concat([].map.call(document.querySelectorAll('#cover img'), function (i) { return i.getAttribute('src'); }));
+            var gate = Promise.all([fonts, Promise.all(list.map(loadImg))]);
 
-      function warm() { // di background: siapkan section berikutnya
-        var u = {};
-        [].forEach.call(document.querySelectorAll('#home img,#mempelai img'), function (i) { u[i.getAttribute('src')] = 1; });
-        Object.keys(u).forEach(function (s) { var i = new Image(); i.fetchPriority = 'low'; i.src = s; });
-        ['400 1em "Cormorant Garamond"', '600 1em "Cormorant Garamond"', '600 1em "Playfair Display"', '1em Amiri', '600 1em Caveat']
-          .forEach(function (f) { document.fonts.load(f, 'Aب'); });
-      }
+            function warm() { // di background: siapkan section berikutnya
+                var u = {};
+                [].forEach.call(document.querySelectorAll('#home img,#mempelai img'), function (i) { u[i.getAttribute('src')] = 1; });
+                Object.keys(u).forEach(function (s) { var i = new Image(); i.fetchPriority = 'low'; i.src = s; });
+                ['400 1em "Cormorant Garamond"', '600 1em "Cormorant Garamond"', '600 1em "Playfair Display"', '1em Amiri', '600 1em Caveat']
+                    .forEach(function (f) { document.fonts.load(f, 'Aب'); });
+            }
 
-      function finish() {
-        if (done) return; done = true;
-        if (L) { L.classList.add('hide'); setTimeout(function () { L.remove(); }, 500); }
-        fin();
-        (window.requestIdleCallback || function (f) { setTimeout(f, 300); })(warm, { timeout: 2000 });
-      }
+            function finish() {
+                if (done) return; done = true;
+                if (L) { L.classList.add('hide'); setTimeout(function () { L.remove(); }, 500); }
+                fin();
+                (window.requestIdleCallback || function (f) { setTimeout(f, 300); })(warm, { timeout: 2000 });
+            }
 
-      // failsafe 7 detik agar koneksi lambat tidak membuat loader menggantung
-      Promise.race([gate, new Promise(function (r) { setTimeout(r, 7000); })]).then(finish);
-    })();
+            // failsafe 7 detik agar koneksi lambat tidak membuat loader menggantung
+            Promise.race([gate, new Promise(function (r) { setTimeout(r, 7000); })]).then(finish);
+        })();
     </script>
     <script src="script.js"></script>
 </body>
