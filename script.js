@@ -1,3 +1,19 @@
+/* ====== LOGO LOADING: tunggu semua gambar & font siap ====== */
+(function () {
+    const urls = new Set();
+    document.querySelectorAll('img[src]').forEach(i => urls.add(i.currentSrc || i.src));
+    const re = /url\(["']?([^"')]+)["']?\)/g; let m;
+    const bg = getComputedStyle(document.getElementById('app')).backgroundImage || '';
+    while ((m = re.exec(bg))) urls.add(m[1]);
+    const imgs = [...urls].map(src => new Promise(res => { const im = new Image(); im.onload = im.onerror = res; im.src = src; }));
+    const fonts = ['400 1em "Cormorant Garamond"', '600 1em "Cormorant Garamond"', '600 1em "Playfair Display"', '400 1em "Homemade Apple"', '600 1em "Caveat"', '400 1em "Jost"', '500 1em "Jost"', '400 1em "Amiri"', '400 1em "Courier Prime"']
+        .map(f => document.fonts && document.fonts.load ? document.fonts.load(f, 'A\u0628').catch(() => { }) : null);
+    const t0 = Date.now();
+    Promise.race([Promise.all(imgs.concat(fonts)), new Promise(r => setTimeout(r, 20000))]).then(() => {
+        setTimeout(() => { window.scrollTo(0, 0); document.body.classList.add('loaded'); }, Math.max(0, 500 - (Date.now() - t0)));
+    });
+})();
+
 /* ====== KONFIGURASI ====== */
 const CFG = {
     target: '2026-12-14T18:30:00+07:00',
