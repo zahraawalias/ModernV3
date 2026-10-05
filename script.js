@@ -1,19 +1,3 @@
-/* ====== LOGO LOADING: tunggu semua gambar & font siap ====== */
-(function () {
-    const urls = new Set();
-    document.querySelectorAll('img[src]').forEach(i => urls.add(i.currentSrc || i.src));
-    const re = /url\(["']?([^"')]+)["']?\)/g; let m;
-    const bg = getComputedStyle(document.getElementById('app')).backgroundImage || '';
-    while ((m = re.exec(bg))) urls.add(m[1]);
-    const imgs = [...urls].map(src => new Promise(res => { const im = new Image(); im.onload = im.onerror = res; im.src = src; }));
-    const fonts = ['400 1em "Cormorant Garamond"', '600 1em "Cormorant Garamond"', '600 1em "Playfair Display"', '400 1em "Homemade Apple"', '600 1em "Caveat"', '400 1em "Jost"', '500 1em "Jost"', '400 1em "Amiri"', '400 1em "Courier Prime"']
-        .map(f => document.fonts && document.fonts.load ? document.fonts.load(f, 'A\u0628').catch(() => { }) : null);
-    const t0 = Date.now();
-    Promise.race([Promise.all(imgs.concat(fonts)), new Promise(r => setTimeout(r, 20000))]).then(() => {
-        setTimeout(() => { window.scrollTo(0, 0); document.body.classList.add('loaded'); }, Math.max(0, 500 - (Date.now() - t0)));
-    });
-})();
-
 /* ====== KONFIGURASI ====== */
 const CFG = {
     target: '2026-12-14T18:30:00+07:00',
@@ -71,7 +55,10 @@ window.scrollTo(0, 0);
 
 /* animasi terbit saat di-scroll (ulang tiap masuk layar) */
 const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('in', e.isIntersecting)), { threshold: .15 });
-$$('.rv').forEach(el => io.observe(el));
+appReady.then(() => $$('.rv').forEach(el => io.observe(el)));
+/* jeda animasi goyang/pulse saat section di luar layar */
+const so = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('off', !e.isIntersecting)), { rootMargin: '100px' });
+$$('.stage').forEach(s => so.observe(s));
 
 /* navbar aktif sesuai posisi */
 const links = $$('#nav a');
@@ -114,6 +101,10 @@ $$('.copy').forEach(b => b.onclick = () => {
 
 /* ====== GALERI: kontrol slider + lightbox (zoom, flip, swipe) ====== */
 const imgs = slides.map(s => $('img', s).src);
+/* gambar slider galeri: muat penuh saat section Acara hampir terlihat (agar tidak kosong saat digeser) */
+new IntersectionObserver((e, o) => {
+    if (e[0].isIntersecting) { slides.forEach(s => $('img', s).loading = 'eager'); o.disconnect(); }
+}, { rootMargin: '800px' }).observe($('#acara'));
 let page = 0, rest = 0;
 const mark = () => { $$('i', dotsBox).forEach((d, k) => css(d, { width: k === page ? '4.4cqw' : '1.4cqw', background: k === page ? '#fff' : 'rgba(255,255,255,.55)' })); $('#gCnt').textContent = `${page + 1} / ${slides.length}`; };
 function goTo(i) { page = (i + slides.length) % slides.length; track.scrollTo({ left: page * track.clientWidth, behavior: 'smooth' }); mark(); }
@@ -166,7 +157,7 @@ async function loadWishes() {
     catch (e) { wishes = []; toast('Ucapan belum bisa dimuat'); }
     render();
 }
-loadWishes();
+appReady.then(loadWishes);
 
 /* ====== RSVP: interaktif + kirim ke Google Sheet ====== */
 const nameEl = $('#rName'), attEl = $('#rAtt'), gcEl = $('#rGc'), msgEl = $('#rMsg'), sendBtn = $('#send'), okBtn = $('#ok');

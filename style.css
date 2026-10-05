@@ -1355,3 +1355,8 @@ body:not(.locked) #nav {
 #rGc.tamu-select:valid {
     color: #2a4a7a;
 }
+
+/* ===== OPTIMASI: jeda animasi saat section di luar layar (tampilan tidak berubah) ===== */
+.stage.off .sw,
+.stage.off .pulse,
+.stage.off #oct .h { animation-play-state: paused }
